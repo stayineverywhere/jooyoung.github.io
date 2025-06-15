@@ -6,21 +6,40 @@ body {
 }
 
 header {
-  background-color: #282c34;
+  background-image: url("images/다운로드\ \(10\).jpg");
+  background-size: cover;
+  background-position: center;
   color: white;
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 4rem 1rem;
+  position: relative;
+}
+
+/* 배경 어둡게 (텍스트 가독성 향상용) */
+header::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* 반투명 검정색 */
+  z-index: 1;
+}
+
+header h1,
+header h2 {
+  position: relative;
+  z-index: 2;
 }
 
 header h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 header h2 {
   margin: 0.5rem 0 0;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
+
 
 .card-container {
   display: flex;
