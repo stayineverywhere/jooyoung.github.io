@@ -1,4 +1,5 @@
 # 윤주영의 웹사이트
+https://github.com/stayineverywhere/jooyoung.github.io
 
 ## 프로젝트 개요
 본 웹사이트는 윤주영님의 개인 웹사이트 및 포트폴리오를 소개하는 사이트입니다.  
