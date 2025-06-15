@@ -1,59 +1,55 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>윤주영의 블로그</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
+    <!-- 동그란 사진 추가 -->
+    <img src="images/profile.jpg" alt="프로필 사진" class="profile-image" />
+    
     <h1>안녕하세요!!</h1>
     <h2>윤주영의 홈페이지에 오신 것을 환영합니다!!</h2>
   </header>
 
   <main>
     <div class="card-container">
-      <div class="card" data-target="skills">
+      <div class="card" data-content="skills">
         <h3>나의 스킬</h3>
-        <p>HTML, CSS, JS부터 프레임워크까지!</p>
+        <p>사용 가능한 언어와 프로그래밍 역량</p>
       </div>
-
-      <div class="card" data-target="projects">
+      <div class="card" data-content="projects">
         <h3>프로젝트</h3>
-        <p>내가 만든 다양한 웹 개발 프로젝트를 소개해요.</p>
+        <p>다양한 GitHub 프로젝트</p>
       </div>
-
-      <div class="card" data-target="jobs">
+      <div class="card" data-content="jobs">
         <h3>희망 직무</h3>
-        <p>내가 원하는 개발자 포지션에 대해 알아보세요.</p>
+        <p>졸업 후 진로 방향</p>
       </div>
     </div>
-
-    <section id="skills" class="tab-content hidden">
-      <h2>나의 스킬</h2>
-      <ul>
-        <li>HTML, CSS, JavaScript</li>
-        <li>React, Vue</li>
-        <li>Python, Django</li>
-        <li>Git & GitHub</li>
-      </ul>
-    </section>
-
-    <section id="projects" class="tab-content hidden">
-      <h2>프로젝트</h2>
-      <ul>
-        <li>포트폴리오 웹사이트 제작</li>
-        <li>블로그 클론 프로젝트 (React)</li>
-        <li>지도 기반 맛집 검색 앱</li>
-      </ul>
-    </section>
-
-    <section id="jobs" class="tab-content hidden">
-      <h2>희망 직무</h2>
-      <p>프론트엔드 개발자로서 사용자 중심의 인터페이스를 설계하고, 웹 성능 최적화를 수행하는 업무를 희망합니다.</p>
-    </section>
   </main>
+
+  <!-- 선택 모달 -->
+  <div id="choice-popup" class="popup hidden">
+    <div class="popup-content">
+      <span class="close-btn">&times;</span>
+      <h2>어떻게 보시겠습니까?</h2>
+      <button id="view-popup">팝업창으로 보기</button>
+      <button id="view-web">웹 페이지로 보기</button>
+    </div>
+  </div>
+
+  <!-- 실제 내용 팝업 -->
+  <div id="info-popup" class="popup hidden">
+    <div class="popup-content">
+      <span class="close-btn">&times;</span>
+      <div id="popup-body"></div>
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2025 윤주영의 블로그</p>

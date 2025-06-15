@@ -1,13 +1,15 @@
 body {
   font-family: 'Noto Sans KR', sans-serif;
   margin: 0;
-  background-color: #f4f4f4;
+  background-image: url('images/다운로드\ \(18\).jpg'); /* 배경 이미지 */
+  background-size: cover;       /* 화면에 맞게 꽉 채움 */
+  background-position: center;  /* 중앙 정렬 */
+  background-attachment: fixed; /* 스크롤 시 배경 고정 */
   color: #333;
 }
 
 
 header {
-  background-image: url("images/다운로드\ \(10\).jpg");
   background-size: cover;
   background-position: center;
   color: white;
@@ -15,32 +17,28 @@ header {
   padding: 4rem 1rem;
   position: relative;
 }
-
-/* 배경 어둡게 (텍스트 가독성 향상용) */
 header::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* 반투명 검정색 */
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
-
-header h1,
-header h2 {
+header h1, header h2 {
   position: relative;
   z-index: 2;
 }
-
-header h1 {
-  margin: 0;
-  font-size: 2.5rem;
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1rem;
 }
-
-header h2 {
-  margin: 0.5rem 0 0;
-  font-size: 1.3rem;
-}
-
 
 .card-container {
   display: flex;
@@ -49,48 +47,65 @@ header h2 {
   gap: 1.5rem;
   padding: 2rem;
 }
-
 .card {
   background-color: white;
-  border-radius: 8px;
+  border-radius: 16px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   padding: 1.5rem;
-  width: 250px;
+  width: 260px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
 }
-
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
-
 .card h3 {
   margin-top: 0;
   color: #0055aa;
 }
 
-.tab-content {
-  max-width: 800px;
-  margin: 2rem auto;
-  padding: 1rem;
-  background-color: white;
+.popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.popup.hidden {
+  display: none;
+}
+.popup-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  position: relative;
+}
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+button {
+  margin-top: 1rem;
+  margin-right: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
   border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  display: none;
+  cursor: pointer;
+  background-color: #0055aa;
+  color: white;
+  transition: background-color 0.2s;
 }
-
-.tab-content.active {
-  display: block;
-}
-
-.hidden {
-  display: none;
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: #eee;
-  margin-top: 3rem;
+button:hover {
+  background-color: #003f88;
 }
