@@ -68,6 +68,9 @@ document.addEventListener("DOMContentLoaded", () => {
       btn.addEventListener("click", () => {
         choicePopup.classList.add("hidden");
         infoPopup.classList.add("hidden");
+        // 프로필 팝업도 닫기
+        const profilePopup = document.getElementById("profile-popup");
+        if (profilePopup) profilePopup.classList.add("hidden");
       });
     });
 
@@ -75,8 +78,25 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.key === "Escape") {
         choicePopup.classList.add("hidden");
         infoPopup.classList.add("hidden");
+        // 프로필 팝업도 닫기
+        const profilePopup = document.getElementById("profile-popup");
+        if (profilePopup) profilePopup.classList.add("hidden");
       }
     });
+  }
+
+  // 프로필 팝업
+  const profileImg = document.getElementById("profile-image");
+  const profilePopup = document.getElementById("profile-popup");
+  if (profileImg && profilePopup) {
+    profileImg.style.cursor = "pointer";
+    profileImg.addEventListener("click", () => {
+      profilePopup.classList.remove("hidden");
+    });
+    profilePopup.querySelector(".close-btn").addEventListener("click", () => {
+      profilePopup.classList.add("hidden");
+    });
+    // ESC키로 닫기는 위에서 처리
   }
 });
 
