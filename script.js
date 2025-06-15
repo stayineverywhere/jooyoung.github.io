@@ -46,34 +46,91 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  cards.forEach(card => {
-    card.addEventListener("click", () => {
-      selectedContent = card.getAttribute("data-content");
-      choicePopup.classList.remove("hidden");
+  if (cards.length) {
+    cards.forEach(card => {
+      card.addEventListener("click", () => {
+        selectedContent = card.getAttribute("data-content");
+        choicePopup.classList.remove("hidden");
+      });
     });
-  });
 
-  viewPopupBtn.addEventListener("click", () => {
-    popupBody.innerHTML = contentMap[selectedContent].content;
-    choicePopup.classList.add("hidden");
-    infoPopup.classList.remove("hidden");
-  });
-
-  viewWebBtn.addEventListener("click", () => {
-    window.location.href = contentMap[selectedContent].html;
-  });
-
-  closeBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
+    viewPopupBtn.addEventListener("click", () => {
+      popupBody.innerHTML = contentMap[selectedContent].content;
       choicePopup.classList.add("hidden");
-      infoPopup.classList.add("hidden");
+      infoPopup.classList.remove("hidden");
     });
-  });
 
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") {
-      choicePopup.classList.add("hidden");
-      infoPopup.classList.add("hidden");
-    }
-  });
+    viewWebBtn.addEventListener("click", () => {
+      window.location.href = contentMap[selectedContent].html;
+    });
+
+    closeBtns.forEach(btn => {
+      btn.addEventListener("click", () => {
+        choicePopup.classList.add("hidden");
+        infoPopup.classList.add("hidden");
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        choicePopup.classList.add("hidden");
+        infoPopup.classList.add("hidden");
+      }
+    });
+  }
+});
+
+// 외부 링크 클릭 시 경고 팝업 (모든 페이지에서 동작)
+document.addEventListener("click", function (e) {
+  const target = e.target.closest("a");
+  if (!target) return;
+
+  const url = target.getAttribute("href");
+  if (!url) return;
+
+  const isExternal = /^https?:\/\//.test(url) && !url.includes(location.hostname);
+
+  if (isExternal) {
+    e.preventDefault();
+
+    const confirmPopup = document.createElement("div");
+    confirmPopup.style.position = "fixed";
+    confirmPopup.style.top = "0";
+    confirmPopup.style.left = "0";
+    confirmPopup.style.width = "100vw";
+    confirmPopup.style.height = "100vh";
+    confirmPopup.style.background = "rgba(0,0,0,0.5)";
+    confirmPopup.style.display = "flex";
+    confirmPopup.style.justifyContent = "center";
+    confirmPopup.style.alignItems = "center";
+    confirmPopup.style.zIndex = "10000";
+
+    confirmPopup.innerHTML = `
+      <div style="
+        background: white;
+        padding: 2rem;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        max-width: 90%;
+        font-family: 'Noto Sans KR', sans-serif;
+      ">
+        <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">외부 웹사이트로 이동합니다.<br>계속하시겠습니까?</p>
+        <button id="confirm-yes" style="margin-right: 1rem;">예</button>
+        <button id="confirm-no">아니오</button>
+      </div>
+    `;
+
+    document.body.appendChild(confirmPopup);
+
+    confirmPopup.querySelector("#confirm-yes").addEventListener("click", () => {
+      window.open(url, "_blank");  // 새 탭으로 열기
+      document.body.removeChild(confirmPopup);
+    });
+
+    confirmPopup.querySelector("#confirm-no").addEventListener("click", () => {
+      alert("취소하셨습니다.");
+      document.body.removeChild(confirmPopup);
+    });
+  }
 });
