@@ -26,11 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
       content: `
         <h2 class="bg-light fw-bold mb-2">프로젝트</h2>
         <div class="list-group">
-          <a href="https://github.com/stayineverywhere/coursegraph-py" class="list-group-item list-group-item-action" target="_blank">이수 체계도</a></li>
-          <a href="https://github.com/stayineverywhere/dune-1.5" class="list-group-item list-group-item-action"  target="_blank">듄 게임</a></li>
-          <a href="https://github.com/stayineverywhere/Trian2Busan.S2" class="list-group-item list-group-item-action"  target="_blank">부산행 시즌2</a></li>
-          <a href="https://github.com/stayineverywhere/train2busan.s3" class="list-group-item list-group-item-action"  target="_blank">부산행 시즌3</a></li>
-          <a href="https://github.com/stayineverywhere/queue_skeleton" class="list-group-item list-group-item-action"  target="_blank">Safety Queue</a></li>
+          <a href="https://github.com/stayineverywhere/coursegraph-py" class="list-group-item list-group-item-action" target="_blank">이수 체계도</a>
+          <a href="https://github.com/stayineverywhere/dune-1.5" class="list-group-item list-group-item-action"  target="_blank">듄 게임</a>
+          <a href="https://github.com/stayineverywhere/Trian2Busan.S2" class="list-group-item list-group-item-action"  target="_blank">부산행 시즌2</a>
+          <a href="https://github.com/stayineverywhere/train2busan.s3" class="list-group-item list-group-item-action"  target="_blank">부산행 시즌3</a>
+          <a href="https://github.com/stayineverywhere/queue_skeleton" class="list-group-item list-group-item-action"  target="_blank">Safety Queue</a>
         </div>
       `
     },
