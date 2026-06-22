@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <h2 class="bg-light fw-bold mb-2">희망 직무</h2>
         <ul class="list-group">
           <li class="list-group-item">한남대학교 졸업 후 대학원 진학 목표</li>
-          <li class="list-group-item">게임 개발자 또는 프론트/백엔드 개발자로 진로 고민 중</li>
+          <li class="list-group-item">정보보안 분야 희망</li>
         </ul>
       `
     }
